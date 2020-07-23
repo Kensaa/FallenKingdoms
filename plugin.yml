@@ -1,0 +1,12 @@
+name: FallenKingdoms
+version: 1.0
+author: Kensa
+api-version: 1.12
+main: fr.kensa.fk.Main
+commands: 
+  fk:
+    description: fk base Command
+    permission: fk.use
+  reset:
+    description: reset command
+    permission: reset.use
