@@ -66,6 +66,12 @@ public class FKListener implements Listener {
         if(event.getBlock().getType() == Material.TORCH || event.getBlock().getType() == Material.SIGN){
             return;
         }
+
+        if(Utils.checkInBase(event.getBlock().getLocation(),Field.netherBase) || Utils.checkInBase(event.getBlock().getLocation(),Field.netherBase)){
+            event.setCancelled(true);
+            return;
+        }
+
         if(event.getBlock().getType() == Material.TNT){
           //  System.out.println("TNT");
 
@@ -98,6 +104,12 @@ public class FKListener implements Listener {
     public void onBreakBlock(BlockBreakEvent event){
         if(event.getPlayer().isOp())return;
         if(main.getGameManager().getState() == GameState.WAITING){
+            event.getPlayer().sendMessage("§cVOUS NE POUVEZ PAS PLACER DE BLOCK ICI");
+            event.setCancelled(true);
+            return;
+        }
+
+        if(Utils.checkInBase(event.getBlock().getLocation(),Field.netherBase) || Utils.checkInBase(event.getBlock().getLocation(),Field.netherBase)){
             event.setCancelled(true);
             return;
         }
@@ -110,6 +122,7 @@ public class FKListener implements Listener {
             enmTeam = TeamName.RED;
         }
         if(Utils.checkInBase(event.getBlock().getLocation(),main.getTeam(enmTeam).getBase())){
+            event.getPlayer().sendMessage("§cVOUS NE POUVEZ PAS PLACER DE BLOCK ICI");
             event.setCancelled(true);
             return;
         }

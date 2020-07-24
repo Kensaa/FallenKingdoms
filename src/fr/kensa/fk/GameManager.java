@@ -93,7 +93,7 @@ public class GameManager {
             inv.setItem(9,new ItemStack(Material.IRON_INGOT,5));
             inv.setItem(10,new ItemStack(Material.ARROW,20));
             inv.setItem(11,new ItemStack(Material.IRON_INGOT,5));
-            inv.setItem(12,new ItemStack(Material.DIAMOND_BLOCK,1)); 
+            inv.setItem(12,new ItemStack(Material.DIAMOND_BLOCK,1));
             inv.setItem(13,chestplate);
             inv.setItem(14,new ItemStack(Material.DIAMOND_BLOCK,1));
             inv.setItem(15,new ItemStack(Material.IRON_INGOT,5));
@@ -274,14 +274,14 @@ public class GameManager {
     }
 
     public void addADay() {
-        day = day + 9;
+        day = day + Field.ADDEDDAYPERDAY;
 
         checkForEvent();
     }
 
     private void checkForEvent() {
         if(day == Field.PVPDAY){
-            Bukkit.broadcastMessage(ChatColor.YELLOW+"Le PVP est activé, Vous pouvez désormer taper sur la gueule de vos adversaire");
+            Bukkit.broadcastMessage(ChatColor.YELLOW+"Le PVP est activé, Vous pouvez désormer taper sur la gueule de vos adversaires");
             return;
         }
         if(day == Field.NETHERDAY){

@@ -2,6 +2,7 @@ package fr.kensa.fk;
 
 import fr.kensa.fk.commands.FkCommand;
 import fr.kensa.fk.commands.ResetCommand;
+import fr.kensa.fk.game.Base;
 import fr.kensa.fk.listeners.FKListener;
 import fr.kensa.fk.listeners.GlassPainterListener;
 import fr.kensa.fk.game.Team;
@@ -23,6 +24,9 @@ public class Main extends JavaPlugin {
 
     Team teamBlue = new Team("blue","§1",new Location(Bukkit.getWorld("world"), 140,73 ,172),new Location(Bukkit.getWorld("world"), 112,73,144));
     Team teamRed = new Team("red","§c",new Location(Bukkit.getWorld("world"), 28,73,-72),new Location(Bukkit.getWorld("world"), 0,74,-100));
+
+
+
     GameManager gameManager;
 
     Map<Player,Location> playersWalkMap = new HashMap<Player,Location>();
