@@ -22,8 +22,8 @@ import java.util.Map;
 
 public class Main extends JavaPlugin {
 
-    Team teamBlue = new Team("blue","§1",new Location(Bukkit.getWorld("world"), 140,73 ,172),new Location(Bukkit.getWorld("world"), 112,73,144),new Location(Bukkit.getWorld("world"), 125,77,156));
-    Team teamRed = new Team("red","§c",new Location(Bukkit.getWorld("world"), 28,73,-72),new Location(Bukkit.getWorld("world"), 0,74,-100),new Location(Bukkit.getWorld("world"), 14,77,-85));
+    Team teamBlue;
+    Team teamRed;
 
 
 
@@ -33,6 +33,8 @@ public class Main extends JavaPlugin {
 
     @Override
     public void onEnable() {
+         teamBlue = new Team("blue","§1",new Location(Bukkit.getWorld("world"), 140,73 ,172),new Location(Bukkit.getWorld("world"), 112,73,144),new Location(Bukkit.getWorld("world"), 125,77,156));
+         teamRed = new Team("red","§c",new Location(Bukkit.getWorld("world"), 28,73,-72),new Location(Bukkit.getWorld("world"), 0,74,-100),new Location(Bukkit.getWorld("world"), 14,77,-85));
         getCommand("fk").setExecutor(new FkCommand(this));
         getCommand("reset").setExecutor(new ResetCommand(this));
         getServer().getPluginManager().registerEvents(new FKListener(this),this);

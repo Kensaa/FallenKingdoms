@@ -4,6 +4,9 @@ import fr.kensa.fk.Main;
 import fr.kensa.fk.game.Team;
 import fr.kensa.fk.game.TeamName;
 import org.bukkit.Bukkit;
+import org.bukkit.Location;
+import org.bukkit.Material;
+import org.bukkit.World;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -63,14 +66,10 @@ public class FkCommand implements CommandExecutor {
                         main.getGameManager().stop();
                         break;
                 }
-
                 break;
 
             case "tp":
-                System.out.println("tp called");
                 Player t = Bukkit.getPlayer(args[1]);
-                System.out.println("Player : "+args[1]);
-
                 Team team = main.getTeam(TeamName.RED);
                 if(args[2].equalsIgnoreCase("red")){
 
@@ -79,12 +78,15 @@ public class FkCommand implements CommandExecutor {
                 if(args[2].equalsIgnoreCase("blue")){
                     team = main.getTeam(TeamName.BLUE);
                 }
-                System.out.println("Team : "+args[2]);
-                System.out.println("loc : "+args[3]);
-                t.teleport(team.getBase().getLoc3());
-
-
-
+                if(args[3].equalsIgnoreCase("1")){
+                    t.teleport(team.getBase().getLoc1());
+                }
+                if(args[3].equalsIgnoreCase("2")){
+                    t.teleport(team.getBase().getLoc2());
+                }
+                if(args[3].equalsIgnoreCase("3")){
+                    t.teleport(team.getBase().getLoc3());
+                }
                 break;
         }
 
