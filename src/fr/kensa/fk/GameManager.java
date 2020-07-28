@@ -44,6 +44,7 @@ public class GameManager {
         if(state != GameState.WAITING)return;
         state = GameState.STARTED;
         timer.schedule(new TimerLoop(main),0,1000);
+        System.out.println("------------------------START GAME------------------------------");
         System.out.println("RED");
         for(Player p : main.getTeam(TeamName.RED).getPlayers()){
             System.out.println(p.getName());
