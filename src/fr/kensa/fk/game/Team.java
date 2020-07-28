@@ -15,10 +15,10 @@ public class Team {
     List<Player> inEmnCBase = new ArrayList<>();
     int winTimer = 0;
 
-    public Team(String name, String tag, Location loc1, Location loc2){
+    public Team(String name, String tag, Location loc1, Location loc2, Location loc3){
         this.name = name;
         this.tag = tag;
-        this.base = new Base(loc1,loc2);
+        this.base = new Base(loc1,loc2,loc3);
     }
 
     public void addPlayer(Player p){
@@ -71,4 +71,5 @@ public class Team {
     public void setInEmnCBase(List<Player> inEmnCBase) {
         this.inEmnCBase = inEmnCBase;
     }
+
 }

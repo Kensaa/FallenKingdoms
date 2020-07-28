@@ -47,10 +47,13 @@ public class GameManager {
         System.out.println("RED");
         for(Player p : main.getTeam(TeamName.RED).getPlayers()){
             System.out.println(p.getName());
+            p.teleport(main.teamRed.getBase().getLoc3());
         }
         System.out.println("BLUE");
         for(Player p : main.getTeam(TeamName.BLUE).getPlayers()){
             System.out.println(p.getName());
+            p.teleport(main.teamBlue.getBase().getLoc3());
+
         }
 
     }
