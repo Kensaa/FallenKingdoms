@@ -35,7 +35,7 @@ public class Main extends JavaPlugin {
         getCommand("fk").setExecutor(new FkCommand(this));
         getCommand("reset").setExecutor(new ResetCommand(this));
         getServer().getPluginManager().registerEvents(new FKListener(this),this);
-        getServer().getPluginManager().registerEvents(new GlassPainterListener(this),this);
+       // getServer().getPluginManager().registerEvents(new GlassPainterListener(this),this);
 
         gameManager = new GameManager(this);
 
