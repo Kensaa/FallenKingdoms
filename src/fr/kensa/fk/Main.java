@@ -15,10 +15,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.ShapelessRecipe;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Main extends JavaPlugin {
 
@@ -34,7 +31,7 @@ public class Main extends JavaPlugin {
     @Override
     public void onEnable() {
          teamBlue = new Team("blue","§1",new Location(Bukkit.getWorld("world"), 140,73 ,172),new Location(Bukkit.getWorld("world"), 112,73,144),new Location(Bukkit.getWorld("world"), 125,77,156));
-         teamRed = new Team("red","§c",new Location(Bukkit.getWorld("world"), 28,73,-72),new Location(Bukkit.getWorld("world"), 0,74,-100),new Location(Bukkit.getWorld("world"), 14,77,-85));
+         teamRed = new Team("red","§c",new Location(Bukkit.getWorld("world"), 28,73,-72),new Location(Bukkit.getWorld("world"), 0,74,-100),new Location(Bukkit.getWorld("world"), 14,77,-84));
         getCommand("fk").setExecutor(new FkCommand(this));
         getCommand("reset").setExecutor(new ResetCommand(this));
         getServer().getPluginManager().registerEvents(new FKListener(this),this);
@@ -73,11 +70,15 @@ public class Main extends JavaPlugin {
     }
 
     public List<Player> getTeamPlayers(TeamName team){
-        List<Player> toReturn = null;
+        List<Player> toReturn = new ArrayList<>();
         if(team.equals(TeamName.RED)){
-            toReturn = teamRed.getPlayers();
+            for(UUID uuid : teamRed.getPlayers()){
+                toReturn.add(Bukkit.getPlayer(uuid));
+            }
         }else if(team.equals(TeamName.BLUE)){
-            toReturn = teamBlue.getPlayers();
+            for(UUID uuid : teamBlue.getPlayers()){
+                toReturn.add(Bukkit.getPlayer(uuid));
+            }
         }
         return toReturn;
     }
@@ -94,9 +95,9 @@ public class Main extends JavaPlugin {
 
     public TeamName getPlayerTeam(Player p){
         TeamName toReturn = null;
-        if(getTeam(TeamName.RED).getPlayers().contains(p)){
+        if(getTeam(TeamName.RED).getPlayers().contains(p.getUniqueId())){
             toReturn = TeamName.RED;
-        } else if(getTeam(TeamName.BLUE).getPlayers().contains(p)){
+        } else if(getTeam(TeamName.BLUE).getPlayers().contains(p.getUniqueId())){
             toReturn = TeamName.BLUE;
         }
         return toReturn;

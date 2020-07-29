@@ -6,11 +6,12 @@ import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 public class Team {
     String name;
     String tag;
-    List<Player> players = new ArrayList<>();
+    List<UUID> players = new ArrayList<>();
     Base base;
     List<Player> inEmnCBase = new ArrayList<>();
     int winTimer = 0;
@@ -22,8 +23,8 @@ public class Team {
     }
 
     public void addPlayer(Player p){
-        if(!players.contains(p)){
-            players.add(p);
+        if(!players.contains(p.getUniqueId())){
+            players.add(p.getUniqueId());
             p.setCustomName(tag + p.getName() + ChatColor.RESET);
             p.setCustomNameVisible(true);
             p.setPlayerListName(tag + p.getName() + ChatColor.RESET);
@@ -44,7 +45,7 @@ public class Team {
         return name;
     }
 
-    public List<Player> getPlayers() {
+    public List<UUID> getPlayers() {
         return players;
     }
 

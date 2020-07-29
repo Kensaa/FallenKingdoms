@@ -28,6 +28,9 @@ public class FKListener implements Listener {
         Scoreboard board = main.getGameManager().getFallenScoreboard().getScoreboard();
         event.getPlayer().getAttribute(Attribute.GENERIC_ATTACK_SPEED).setBaseValue(30.0d);
         event.getPlayer().setScoreboard(board);
+        if(main.getPlayerTeam(event.getPlayer()) != null){
+
+        }
        // System.out.println(main.getGameManager());
 
     }
@@ -127,4 +130,5 @@ public class FKListener implements Listener {
             return;
         }
     }
+
 }

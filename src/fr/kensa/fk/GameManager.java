@@ -19,6 +19,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Timer;
+import java.util.UUID;
 
 public class GameManager {
 
@@ -46,12 +47,14 @@ public class GameManager {
         timer.schedule(new TimerLoop(main),0,1000);
         System.out.println("------------------------START GAME------------------------------");
         System.out.println("RED");
-        for(Player p : main.getTeam(TeamName.RED).getPlayers()){
+        for(UUID uuid : main.getTeam(TeamName.RED).getPlayers()){
+            Player p = Bukkit.getPlayer(uuid);
             System.out.println(p.getName());
             p.teleport(main.teamRed.getBase().getLoc3());
         }
         System.out.println("BLUE");
-        for(Player p : main.getTeam(TeamName.BLUE).getPlayers()){
+        for(UUID uuid : main.getTeam(TeamName.BLUE).getPlayers()){
+            Player p = Bukkit.getPlayer(uuid);
             System.out.println(p.getName());
             p.teleport(main.teamBlue.getBase().getLoc3());
 
@@ -279,7 +282,7 @@ public class GameManager {
             return;
         }
         if(day == Field.NETHERDAY){
-            Bukkit.broadcastMessage(ChatColor.RED+"Le nether est dès maintenant acctivé.\nLe Portail ce situe a west de l'arbre");
+            Bukkit.broadcastMessage(ChatColor.RED+"Le nether est dès maintenant acctivé.\nLe Portail ce situe a l'ouest de l'arbre");
             Bukkit.getWorld("world").getBlockAt(new Location(Bukkit.getWorld("world"),-48,74,109)).setType(Material.AIR);
             Bukkit.getWorld("world").getBlockAt(new Location(Bukkit.getWorld("world"),-47,74,109)).setType(Material.AIR);
             Bukkit.getWorld("world").getBlockAt(new Location(Bukkit.getWorld("world"),-48,73,109)).setType(Material.AIR);
