@@ -67,7 +67,7 @@ public class FKListener implements Listener {
             return;
         }
 
-        if(Utils.checkInBase(event.getBlock().getLocation(),Field.netherBase) || Utils.checkInBase(event.getBlock().getLocation(),Field.netherBase)){
+        if(Utils.checkInBase(event.getBlock().getLocation(),Field.netherBase) || Utils.checkInBase(event.getBlock().getLocation(),Field.netherBase) || Utils.checkInBase(event.getBlock().getLocation(),Field.spawnBase)){
             event.setCancelled(true);
             return;
         }
@@ -109,7 +109,7 @@ public class FKListener implements Listener {
             return;
         }
 
-        if(Utils.checkInBase(event.getBlock().getLocation(),Field.netherBase) || Utils.checkInBase(event.getBlock().getLocation(),Field.netherBase)){
+        if(Utils.checkInBase(event.getBlock().getLocation(),Field.netherBase) || Utils.checkInBase(event.getBlock().getLocation(),Field.netherBase) || Utils.checkInBase(event.getBlock().getLocation(),Field.spawnBase)){
             event.setCancelled(true);
             return;
         }

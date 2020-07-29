@@ -129,11 +129,8 @@ public class GameManager {
             if (main.getTeam(team).getInEmnCBase().size() == main.getTeam(team).getPlayers().size() && main.getTeam(team).getPlayers().size() != 0) {
                 main.getTeam(team).setWinTimer(main.getTeam(team).getWinTimer() + 1);
                    Bukkit.broadcastMessage("+1");
-                   Bukkit.broadcastMessage("+1");
-
             }
             if (main.getTeam(team).getWinTimer() == Field.TIMETOWIN) {
-                // Bukkit.broadcastMessage("WIN"+playerTeam.name());
                 win(team);
             }
         }
@@ -147,29 +144,22 @@ public class GameManager {
                 enmTeam = TeamName.RED;
             }
             if (Utils.checkRadius(p, main.getTeam(enmTeam))) {
-            if (main.getTeam(main.getPlayerTeam(p)).getInEmnCBase().contains(p)) {
-                continue;
-
-                    //yes
+                if (main.getTeam(main.getPlayerTeam(p)).getInEmnCBase().contains(p)) {
+                    continue;
                 } else {
                     List<Player> newL = main.getTeam(main.getPlayerTeam(p)).getInEmnCBase();
                     newL.add(p);
                     main.getTeam(main.getPlayerTeam(p)).setInEmnCBase(newL);
                 }
-            }else{
-
-            //no
-
-            if(main.getTeam(main.getPlayerTeam(p)).getInEmnCBase().contains(p)){
-                List<Player> newL = main.getTeam(main.getPlayerTeam(p)).getInEmnCBase();
-                newL.remove(p);
-                main.getTeam(main.getPlayerTeam(p)).setInEmnCBase(newL);
-
-
+            } else {
+                if (main.getTeam(main.getPlayerTeam(p)).getInEmnCBase().contains(p)) {
+                    List<Player> newL = main.getTeam(main.getPlayerTeam(p)).getInEmnCBase();
+                    newL.remove(p);
+                    main.getTeam(main.getPlayerTeam(p)).setInEmnCBase(newL);
                 }
-
-}}
             }
+        }
+    }
 
 
 
