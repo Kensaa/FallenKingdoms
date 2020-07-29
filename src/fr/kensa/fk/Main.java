@@ -4,7 +4,7 @@ import fr.kensa.fk.commands.FkCommand;
 import fr.kensa.fk.commands.ResetCommand;
 import fr.kensa.fk.game.Base;
 import fr.kensa.fk.listeners.FKListener;
-import fr.kensa.fk.listeners.GlassPainterListener;
+
 import fr.kensa.fk.game.Team;
 import fr.kensa.fk.game.TeamName;
 import org.bukkit.Bukkit;
